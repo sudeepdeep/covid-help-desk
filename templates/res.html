@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result page</title>
+    <style>
+        .result{
+            display:grid;
+            place-items: center;
+            padding-top:100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class = "result">
+    <h4>Search Results for {{mandal}} Mandal</h4>
+    {% for req in data.each() %}
+    {% for a,b in req.val().items() %}
+    {{a}} : {{b}}<br>
+    {% endfor %}
+    {% endfor %}
+</div>
+</body>
+</html>

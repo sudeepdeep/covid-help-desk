@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.section{
+    width: 100%;
+    height: 100%;
+}
+
+.first{
+    background:#99FFB2;
+    height:100vh;
+}
+
+
+<form action = "/" method = "POST">
+Select District: <select class = "district">
+    <option>Srikakulam</option>
+    <option>Vijayanagaram</option>
+    <option>Visakhapatnam</option>
+    <option>Vijayawada</option>
+    <option>Guntur</option>
+    <option>Krishna</option>
+    <option>West Godavari</option>
+    <option>East Godavari</option>
+</select>
+</form>

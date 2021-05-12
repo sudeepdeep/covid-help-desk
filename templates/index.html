@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.section{
+    width: 100%;
+    height: 100%;
+}
+
+.first{
+    background: rgb(4,204,47);
+    background: linear-gradient(0deg, rgba(4,204,47,1) 0%, rgba(3,177,204,1) 100%);
+    height:100vh;
+    opacity: 1;
+    
+}
+.cover-image{
+position: absolute;
+height: 100vh;
+width: 100%;
+opacity: 0.5;
+z-index: 1;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    z-index: 2;
+
+}
+.head-image{
+object-fit: cover;
+position: absolute;
+height: 100vh;
+opacity: 1;
+}
+
+.first h1{
+    font-size:25px;
+    color:white;
+}
+.first button{
+    position: absolute;
+    width: 150px;
+    top:60%;
+    left:50%;
+    transform: translate(-60%,50%);
+    height:50px;
+    border-radius:3px;
+    border: 0px;
+    font-size: 20px;
+    background-color:#F09537;
+    z-index:2;
+    cursor: pointer;
+}
+.first button a{
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+}
+.nav-bar{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    padding-left: 50%;
+    
+}
+
+.district{
+    color:black;
+}
+.second{
+    position: absolute;
+    height:100vh;
+    width:100%;
+}
+.helpdesk{
+    display: flex;
+    justify-content:space-around;
+}
+.oxygen{
+    border: 0px solid black;
+    border-radius:10px;
+    height:300px;
+    width:25%;
+    margin-top:200px;
+    background-color: black;
+}
+.hospitals{
+    border: 0px solid black;
+    border-radius:10px;
+    height:300px;
+    width:25%;
+    margin-top:200px;
+    background-color: black;
+}
+.vaccine{
+    border: 0px solid black;
+    border-radius:10px;
+    height:300px;
+    width:25%;
+    margin-top:200px;
+    background-color: black;
+}
+.helptext1{
+    margin-top: 35%;
+    margin-left:20%;
+}
+.helptext2{
+    margin-top: 35%;
+    margin-left:20%;
+}
+.helptext3{
+    margin-top: 35%;
+    margin-left:30%;
+}
+.oxygen a h5{
+    color:yellow;
+}
+.hospitals a h5{
+    color:yellow;
+}
+.vaccine a h5{
+    color:yellow;
+}
+
+.oxygen a , .vaccine a, .hospitals a{
+    text-decoration:none
+}
+.oxygen:hover{
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/oxygen.jpeg')}}");
+    background-size: cover;
+    transition:0.5s ease;
+}
+.oxygen:hover h5{
+    font-size: 20px;
+    color:white;
+}
+
+.hospitals:hover{
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/hsptl.jpg')}}");
+    background-size: cover;
+    transition:0.5s ease;
+}
+.hospitals:hover h5{
+    font-size: 20px;
+    color:white;
+}
+
+.vaccine:hover{
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/vaccine.jpg')}}");
+    background-size: cover;
+    transition:0.5s ease;
+    
+}
+.vaccine:hover h5{
+    font-size: 20px;
+    color:white;
+}
+
+div.fadeOut{
+    opacity: 0;
+    pointer-events: none;
+}
+div.fadeIn{
+    opacity: 1;
+    pointer-events: all;
+}
+</style>
+
+<link href='https://fonts.googleapis.com/css?family=Baloo 2' rel='stylesheet'>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="jquery-2.1.4.js"></script>
+
+
+</head>
+<body>
+    <section class='main'>
+        <div class="first">
+        <div class = "nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Help Desk
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Oxygen Beds Availability</a></li>
+                          <li><a class="dropdown-item" href="#">Covid Hospitals NearBy</a></li>
+                          <li><a class="dropdown-item" href="#">Vaccine Registration</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Our Team</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin Login</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+       
+            <img class = "cover-image" src = "{{url_for('static',filename = 'images/screen-3.jpg')}}">
+            <img class = "head-image" src = "{{url_for('static',filename = 'images/ysj2.png')}}">
+            <h1 class='title'>YSRCP Covid Help-Desk Website</h1>
+            <button><a href = "#second">Get Started</a></button>
+ 
+        </div>
+
+        <div class=  "second" id = "second">
+            <div class="helpdesk">
+           <div class="oxygen"><a href= "/oxygen"><h5 class= "helptext1">Check For Oxygen Beds</h5></a></div>
+           <div class="hospitals"><a href= "#"><h5 class= "helptext2">Check For Covid Hospitals</h5></a></div>
+            <div class="vaccine"><a href= "#"><h5 class= "helptext3">Vaccine Registration</h5></a></div>
+        </div>
+        </div>
+
+
+    </section>
+
+<script type="text/javascript">
+const getStarted = () =>{
+    const startBtn = document.querySelector('.first button');
+    const firstScreen = document.querySelector('.first');
+    const secondScreen = document.querySelector('.second');
+
+    startBtn.addEventListener('click',() => {
+        firstScreen.classList.add("fadeOut");
+        secondScreen.classList.add("fadeIn");
+    });
+};
+
+getStarted();
+</script>
+</body>
+</html>
