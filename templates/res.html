@@ -1,27 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result page</title>
-    <style>
-        .result{
-            display:grid;
-            place-items: center;
-            padding-top:100px;
-        }
+{% extends 'base.html'%}
+{% block title %}Oxygen Page{% endblock %}
+{% block content %}
+<style>
+  .dists{
+    width: 100%;
+    height: 100vh;
+    background:rgb(50,92,132);
+    color: white;
+    padding-top: 200px;
+  }
+
+  .dists .sub{
+      margin-left: 50%;
+  }
+  .buttoon{
+    width:100%;
+    left:50%;
+
+  }
+  .buttoon button{
+    margin-top:10px;
+    border: none;
+    width:200px;
+    height:120px;
+    color: white;
+    background-color: #F09537;
+  }
+
     </style>
-</head>
-<body>
+    <center>
+            <div class="dists"> <div sub>
+    <form action = "/phoneverification" method = "post"> 
+   
+        
+   
+    <h4>Search Results for {{mandal}} Mandal</h4><br>
+    {% for a,b in data.items() %}
+    {{a}} : {{b}}<br><br>
+    {% endfor %}
+        <div class="buttoon">
+        <button>Click Here to Register for oxygen bed in {{mandal}}</button></div></div>
     
-    <div class = "result">
-    <h4>Search Results for {{mandal}} Mandal</h4>
-    {% for req in data.each() %}
-    {% for a,b in req.val().items() %}
-    {{a}} : {{b}}<br>
-    {% endfor %}
-    {% endfor %}
-</div>
-</body>
-</html>
+</form></div></center>
+{% endblock %}
