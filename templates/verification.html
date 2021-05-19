@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block title %}Oxygen Page{% endblock %}
+{% block content %}
+<style>
+  .dists{
+    width: 100%;
+    height: 80vh;
+    background:rgb(50,92,132);
+    color: white;
+    padding-top: 200px;
+  }
+  .buttoon{
+    width:100%;
+    left:50%;
+
+  }
+  .buttoon button{
+    margin-top:10px;
+    border: none;
+    width:140px;
+    height:40px;
+    margin-top:50px;
+    color: white;
+    background-color: #F09537;
+  }
+</style>
+<center><div class = "dists">
+    <form action = "/verification" method = "post">
+    <h4>A Code is send to the {{phn}}</h4>
+    Please enter the 6-Digit code here: <input type="text" name = "code"><br><br>
+    <button>Submit the code</button>
+    </form></div></center>
+{% endblock %}

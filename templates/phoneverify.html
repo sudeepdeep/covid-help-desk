@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block title %}Oxygen Page{% endblock %}
+{% block content %}
+<style>
+  .dists{
+    width: 100%;
+    height: 80vh;
+    background:rgb(50,92,132);
+    color: white;
+    padding-top: 200px;
+  }
+
+  .dists button{
+    margin-top:10px;
+    border: none;
+    width:140px;
+    height:40px;
+    color: white;
+    margin-top:50px;
+    background-color: #F09537;
+  }
+</style>
+<center><div class = "dists">
+    <form action = "/verify" method = "post">
+        <h3>Please don't add any codes infront of your mobile number.</h3>
+    Enter Working Phone Number: <input type = "tel" name = "phone" placeholder = "88869XXXXX"><br>
+
+    <button>Submit</button>
+    </form></div></center>
+{% endblock %}

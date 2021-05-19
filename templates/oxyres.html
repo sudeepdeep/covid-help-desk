@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% block title %}Oxygen Page{% endblock %}
+{% block content %}
+<style>
+  .dists{
+    width: 100%;
+    height: 100vh;
+    background:rgb(50,92,132);
+    color: white;
+    padding-top: 200px;
+  }
+ 
+  .dists button{
+    margin-top:10px;
+    border: none;
+    width:140px;
+    height:70px;
+    color: white;
+    background-color: #F09537;
+  }
+</style>
+<center><div class = "dists">
+    <form action = "/oxypatient" method = "post">
+
+        {% if message %}{{message}}{% endif %}
+        <p>Mandal : {{man}}</p>
+        <p>District : {{dist}}</p>
+        <p>Mobile Number : {{mobile}}</p>
+        Enter Patient Name : <input type="text" name = "name"><br><br>
+        Enter the Oxygen Level: <input type = "number" name = "level"><br><br>
+        Enter the Optional Phone Number: <input type = "number" name = "phone"><br><br>
+        Enter the Complete Address: <textarea name = "address"></textarea><br>
+
+      <button>Submit the Details</button>
+
+    </form></div></center>
+{% endblock %}

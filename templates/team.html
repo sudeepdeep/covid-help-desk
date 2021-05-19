@@ -1,0 +1,355 @@
+{% extends 'base.html'%}
+{% block title %}Team Members{% endblock %}
+{% block content %}
+    <style>
+        .boxes{
+            display:grid;
+            width:100%;
+            height:100vh;
+           
+            
+            
+        }
+        .innerboxes{
+            margin-top: 200px;
+            display:flex;
+            justify-content: space-around;
+        
+        }
+        .box1{
+            height:400px;
+            width:300px;
+            background-color: #4C74C9;
+            transition: 0.2s ease;
+            text-align: center;
+            display:inline-block;
+            position: relative;
+            
+        }
+        .box2{
+            height:400px;
+            width:300px;
+            background-color: #4C74C9;
+            transition: 0.2s ease;
+            text-align: center;
+            display:inline-block;
+            position: relative;
+        }
+
+        .box1 :before{
+            content: attr(data-hover);
+        }
+        .box1 :after{
+            content: attr(data-active);
+        }
+        .box1:hover{
+            background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/rr.jpg')}}");
+            background-size: cover;
+            background-color:#7BA4DD;
+            transform:scale(1.1);
+            box-shadow: -15px -12px 8px rgba(0, 0, 0, 0.4);
+        }
+        .box1 p{
+            margin-top:200px;
+            color:white;
+        }
+        .box1 p a{
+            text-decoration:none;
+            color: white;
+        }
+
+
+        .box2 :before{
+            content: attr(data-hover);
+        }
+        .box2 :after{
+            content: attr(data-active);
+        }
+        .box2:hover{
+            background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/zyto.jpg')}}");
+            background-size: cover;
+            background-color:#7BA4DD;
+            transform:scale(1.1);
+            box-shadow: -15px -12px 8px rgba(0, 0, 0, 0.4);
+        }
+        .box2 p{
+            margin-top:200px;
+            color:white;
+        }
+        .box2 p a{
+            text-decoration:none;
+            color: white;
+        }
+
+        *,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* .button */
+
+.box1 {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+
+    outline: none;
+    color: #FFF;
+    background: #4C74C9;
+    font-family: 'raleway', sans-serif;
+}
+
+.box1 span {
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.box1:before,
+.box1:after {
+    content: '';
+    position: absolute;
+    top: 24.67em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    font: 0.7em sans-serif;
+    -webkit-transition: .4s,opacity .6s;
+    -moz-transition: .4s,opacity .6s;
+    -o-transition: .4s,opacity .6s;
+    transition: .4s,opacity .6s;
+}
+
+/* :before */
+
+.box1:before {
+    content: attr(data-hover);
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+}
+
+/* :after */
+
+.box1:after {
+      content: attr(data-active);
+    -webkit-transform: translate(150%,0);
+    -moz-transform: translate(150%,0);
+    -ms-transform: translate(150%,0);
+    -o-transform: translate(150%,0);
+    transform: translate(150%,0);
+}
+
+/* Span on :hover and :active */
+
+.box1:hover span,
+.box1:active span {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3);
+}
+
+/*  
+    We show :before pseudo-element on :hover 
+    and :after pseudo-element on :active 
+*/
+
+.box1:hover:before,
+.box1:active:after {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    -o-transition-delay: .4s;
+    transition-delay: .4s;
+}
+
+/* 
+  We hide :before pseudo-element on :active
+*/
+
+.box1:active:before {
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+
+
+
+
+
+
+
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* .button */
+
+.box2 {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+
+    outline: none;
+    color: #FFF;
+    background: #4C74C9;
+    font-family: 'raleway', sans-serif;
+}
+
+.box2 span {
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.box2:before,
+.box2:after {
+    content: '';
+    position: absolute;
+    top: 24.67em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    font: 0.7em sans-serif;
+    -webkit-transition: .4s,opacity .6s;
+    -moz-transition: .4s,opacity .6s;
+    -o-transition: .4s,opacity .6s;
+    transition: .4s,opacity .6s;
+}
+
+/* :before */
+
+.box2:before {
+    content: attr(data-hover);
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+}
+
+/* :after */
+
+.box2:after {
+      content: attr(data-active);
+    -webkit-transform: translate(150%,0);
+    -moz-transform: translate(150%,0);
+    -ms-transform: translate(150%,0);
+    -o-transform: translate(150%,0);
+    transform: translate(150%,0);
+}
+
+/* Span on :hover and :active */
+
+.box2:hover span,
+.box2:active span {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3);
+}
+
+/*  
+    We show :before pseudo-element on :hover 
+    and :after pseudo-element on :active 
+*/
+
+.box2:hover:before,
+.box2:active:after {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    -o-transition-delay: .4s;
+    transition-delay: .4s;
+}
+
+/* 
+  We hide :before pseudo-element on :active
+*/
+
+.box1:active:before {
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class = "innerboxes">
+        <div class="box1" data-hover="Remember 2 things..
+        ఒకటి నాకు sync లో ఉండు...
+        else నాకు side ఉండు....
+        @Partyfellow
+        .. రోజుకి మీ ఖర్చు లో ఒక coffee money అయిన దానం చెయ్యండి.." data-active="I'M ACTIVE"><p>Team Lead<br><a href= "https://twitter.com/rowdyrascal54" target="_blank">@rowdyrascal54</a>
+        <span></span>
+        
+        </p></div>
+        <div class="box2" data-hover="
+        @ysjagan |
+@alluarjun | 
+@imVkohli |
+@sunrisers | #memer | 
+@thePSF | #space_explorer | #tech_enthusiastic |" data-active="I'M ACTIVE"><p>Team Member<br><a href= "https://twitter.com/deepu_ysj?lang=en" target="_blank">@deepu_ysj</a>
+        <span></span>
+        
+        </p></div>
+        </div>
+    </div>
+{% endblock %}

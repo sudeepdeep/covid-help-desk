@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+{% block title %}Vaccination Page{% endblock %}
+{% block content %}
+<style>
+  .dists{
+    width: 100%;
+    height: 80vh;
+    background:rgb(50,92,132);
+    color: white;
+    padding-top: 200px;
+  }
+  .buttoon{
+    width:100%;
+    left:50%;
+
+  }
+  .buttoon button{
+    margin-top:10px;
+    border: none;
+    width:140px;
+    height:40px;
+    color: white;
+    margin-bottom: 20px;
+    background-color: #F09537;
+  }
+</style>
+
+
+<div class = "dists">
+    <center>
+        
+    <form action = "/vaccination", method = "POST">
+        <label>Select the District</label><br><br>
+        <select name = "vaccine">
+
+            <option value = "Anantapur">Anantapur</option>
+            <option value = "Chittoor">Chittoor</option>
+            <option value = "East Godavari">East Godavari</option>
+            <option value = "Guntur">Guntur</option>
+            <option value = "Krishna">Krishna</option>
+            <option value = "Kurnool">Kurnool</option>
+            <option value = "Prakasam">Prakasam</option>
+            <option value = "Srikakulam">Srikakulam</option>
+            <option value = "Nellore">Nellore</option>
+            <option value = "visakhapatnam">visakhapatnam</option>
+            <option value = "Vizayanagaram">Vizayanagaram</option>
+            <option value = "West Godavari">West Godavari</option>
+            <option value = "Kadapa">Kadapa</option>
+        </select>
+        <div class = "buttoon">
+            <button>Submit</button>
+        </div>
+    </form>
+    {% if data %}
+    {% for a,b in data.val().items() %}
+            {% for i,j in b.items() %}
+                {% for key, val in j.items() %}
+                   {% if key  == "vaccine centers" %}
+                   <h4>The Vaccine Centers present in the {{dist}}</h4>
+                   Mandal : {{a}}<br><br>
+                   Center Details : {{val}}
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+
+    {% elif data1 %}
+
+    <h5>{{data1}} for {{dist}}</h5>
+        
+    {% endif %}
+
+</center>
+</div>
+
+{% endblock %}
