@@ -40,11 +40,10 @@ button:hover {
   margin: 24px 0 12px 0;
 }
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+.imgcontainer img{
+  width:200px;
+  height:200px;
 }
-
 .container {
   padding: 16px;
 }
@@ -72,7 +71,7 @@ span.psw {
 
 <form action="/admin" method="post">
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="{{url_for('static', filename = 'images/loginimage.png')}}" alt="Avatar" class="avatar" >
   </div>
 
   <div class="container">
@@ -83,15 +82,9 @@ span.psw {
     <input type="password" placeholder="Enter Password" name="psw" required>
         
     <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
 </form>
 
 </body>
