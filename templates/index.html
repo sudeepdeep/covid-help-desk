@@ -54,7 +54,7 @@ opacity: 1;
     font-size:25px;
     color:white;
 }
-.first button{
+.butt button{
     position: absolute;
     width: 150px;
     top:60%;
@@ -68,7 +68,7 @@ opacity: 1;
     z-index:2;
     cursor: pointer;
 }
-.first button a{
+.butt button a{
     text-decoration: none;
     color:white;
     font-size: 20px;
@@ -86,6 +86,7 @@ opacity: 1;
 }
 .second{
     position: absolute;
+    background-color:rgb(226, 221, 221);
     height:100vh;
     width:100%;
 }
@@ -99,23 +100,27 @@ opacity: 1;
     height:300px;
     width:25%;
     margin-top:200px;
-    background-color: black;
+    background-color: #003152;
+    transition: transform .2s;
+    
 }
 .hospitals{
-    border: 0px solid black;
+    border: 0px solid #003152;
     border-radius:10px;
     height:300px;
     width:25%;
     margin-top:200px;
-    background-color: black;
+    background-color: #003152;
+    transition: transform .2s;
 }
 .vaccine{
-    border: 0px solid black;
+    border: 0px solid #003152;
     border-radius:10px;
     height:300px;
     width:25%;
     margin-top:200px;
-    background-color: black;
+    background-color: #003152;
+    transition: transform .2s;
 }
 .helptext1{
     margin-top: 35%;
@@ -145,7 +150,11 @@ opacity: 1;
 .oxygen:hover{
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/oxygen.jpeg')}}");
     background-size: cover;
-    transition:0.5s ease;
+    transform:scale(1.1);
+    box-shadow: -15px -12px 8px rgba(0, 0, 0, 0.4);
+    
+   
+    
 }
 .oxygen:hover h5{
     font-size: 20px;
@@ -155,7 +164,8 @@ opacity: 1;
 .hospitals:hover{
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/hsptl.jpg')}}");
     background-size: cover;
-    transition:0.5s ease;
+    transform:scale(1.1);
+    box-shadow: -15px -12px 8px rgba(0, 0, 0, 0.4);
 }
 .hospitals:hover h5{
     font-size: 20px;
@@ -165,7 +175,8 @@ opacity: 1;
 .vaccine:hover{
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(27, 27, 27, 0.73)),url("{{url_for('static',filename = 'images/vaccine.jpg')}}");
     background-size: cover;
-    transition:0.5s ease;
+    transform:scale(1.1);
+    box-shadow: -15px -12px 8px rgba(0, 0, 0, 0.4);
     
 }
 .vaccine:hover h5{
@@ -180,6 +191,28 @@ div.fadeOut{
 div.fadeIn{
     opacity: 1;
     pointer-events: all;
+}
+.third{
+    margin-top: 100px;
+    padding-bottom:100px;
+    background-color: rgb(226, 221, 221);
+}
+.third marquee{
+    text-align: center;
+    color:black;
+}
+.third marquee h3{
+    color:black;
+}
+.third h1,h5{
+    color:black;
+    text-align: center;
+    }
+
+marquee img{
+    width:100px;
+    height:100px;
+    border-radius: 50px;
 }
 </style>
 
@@ -204,23 +237,27 @@ div.fadeIn{
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                       </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Help Desk
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">Oxygen Beds Availability</a></li>
-                          <li><a class="dropdown-item" href="#">Covid Hospitals NearBy</a></li>
-                          <li><a class="dropdown-item" href="#">Vaccine Registration</a></li>
+                          <li><a class="dropdown-item" href="/oxygen">Oxygen Beds Availability</a></li>
+                          <li><a class="dropdown-item" href="/hsptldist">Quarantine centers NearBy</a></li>
+                          <li><a class="dropdown-item" href="/vaccination">Vaccine Registration</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Our Team</a>
+                        <a class="nav-link" href="/team">Our Team</a>
                       </li>
                       <li class="nav-item">
+                        {% if types %}
+                        <a class="nav-link" href="/logout">{{types}}</a>
+                        {% else %}
                         <a class="nav-link" href="/admin">Admin Login</a>
+                        {% endif %}
                       </li>
                     </ul>
                   </div>
@@ -231,15 +268,35 @@ div.fadeIn{
             <img class = "cover-image" src = "{{url_for('static',filename = 'images/screen-3.jpg')}}">
             <img class = "head-image" src = "{{url_for('static',filename = 'images/ysj2.png')}}">
             <h1 class='title'>YSRCP Covid Help-Desk Website</h1>
-            <button><a href = "#second">Get Started</a></button>
+            <div class = "butt">
+            <button><a href = "#second">Get Started</a></button></div>
  
         </div>
 
         <div class=  "second" id = "second">
             <div class="helpdesk">
            <div class="oxygen"><a href= "/oxygen"><h5 class= "helptext1">Check For Oxygen Beds</h5></a></div>
-           <div class="hospitals"><a href= "#"><h5 class= "helptext2">Check For Covid Hospitals</h5></a></div>
+           <div class="hospitals"><a href= "/hsptldist"><h5 class= "helptext2">Check For Covid Hospitals</h5></a></div>
             <div class="vaccine"><a href= "#"><h5 class= "helptext3">Vaccine Registration</h5></a></div>
+        </div>
+
+        <div class = "third" style="color:black;">
+                <h1>Tweet Section</h1>
+                <h5>Use <a href = "https://twitter.com/hashtag/covidtelugu?src=hashtag_click", target="_blank">#covidtelugu</a> Hashtag to Display Your tweet</h5>
+                <marquee direction = "up" scrollamount="5">
+                    {% if td %}
+                    {% for i in range(leng) %}
+                    {% if i%7 == 0 and i != 1%}
+                       <img src =  {{v_td[i]}}><br>
+                           <a href = "https://twitter.com/{{v_td[i+1]}}">{{v_td[i+1]}}</a>
+                      
+                        {% else%}
+                            {{v_td[i]}}<br>
+                    {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </marquee>
+         
         </div>
         </div>
 
