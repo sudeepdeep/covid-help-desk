@@ -12,35 +12,7 @@ import tweepy
 from itertools import islice 
 
 
-# Twitter Api
-consumer_key = "UBJeaq2GxjDvTyZKzIKydQD89"
-consumer_secret = "Fl0qmKharMB6GqtabMDe2ibwa7GYrVO4RVFposVsDeC6wrgpuD"
-access_key = "1360481011893633025-nfZbyYwFZkY9wkUfUoGHFheIOzFrvG"
-access_secret = "4MPuROgcM04Swo9qtvWz3PjOM1StfKSTqkYhePotuyBuy"
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_key, access_secret)
-api = tweepy.API(auth)
 
-# DataBase Configuration
-
-config = {
-    'apiKey': "AIzaSyDot6z-ZvksuuehT1zljyBs5AIIw6lb8hA",
-    'authDomain': "covid-portfolio.firebaseapp.com",
-    'databaseURL': "https://covid-portfolio-default-rtdb.firebaseio.com",
-    'projectId': "covid-portfolio",
-    'storageBucket': "covid-portfolio.appspot.com",
-    'messagingSenderId': "453340073703",
-    'appId': "1:453340073703:web:e663727d69543b87931c42",
-    'measurementId': "G-5551Q0FKC0"
-}
-#Twilo message
-# Download the helper library from https://www.twilio.com/docs/python/install
-
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
-account_sid = 'AC1957c2315f8fd7f1f2419c34a661faf2'
-auth_token = '3ccb05e388d0396dd4dda134c710d83c'
-client = Client(account_sid, auth_token)
 
 
 
